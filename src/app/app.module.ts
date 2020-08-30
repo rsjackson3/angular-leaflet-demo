@@ -4,7 +4,9 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MapComponent } from './map/map.component';
-import {LeafletModule} from '@asymmetrik/ngx-leaflet'
+import {LeafletModule} from '@asymmetrik/ngx-leaflet';
+import { HttpClientModule } from '@angular/common/http';
+import { MarkerService } from './_services/marker.service';
 
 @NgModule({
   declarations: [
@@ -14,9 +16,10 @@ import {LeafletModule} from '@asymmetrik/ngx-leaflet'
   imports: [
     BrowserModule,
     AppRoutingModule,
-    LeafletModule
+    LeafletModule, 
+    HttpClientModule
   ],
-  providers: [],
+  providers: [MarkerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

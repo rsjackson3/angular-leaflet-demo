@@ -1,7 +1,7 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import * as L from 'leaflet';
 import { icon, Marker } from 'leaflet';
-
+import { MarkerService } from '../_services/marker.service';
 
 @Component({
   selector: 'app-map',
@@ -11,10 +11,11 @@ import { icon, Marker } from 'leaflet';
 export class MapComponent implements AfterViewInit {
   private map;
   
-  constructor() { }
+  constructor(private markerService: MarkerService) { }
 
   ngAfterViewInit(): void {
     this.initMap();
+    this.markerService.makeCapitalMarkers(this.map);
   }
 
   private initMap(): void {
